@@ -12,7 +12,7 @@ interface Props
 }
 
 const Input: FC = forwardRef<HTMLInputElement, Props>(
-	({ icon, error, ...props }, ref) => {
+	({ icon, error, ...props }: Props, ref) => {
 		return (
 			<>
 				<label className={`${styles.label} ${error && styles.error}`}>
