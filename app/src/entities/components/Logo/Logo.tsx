@@ -7,7 +7,7 @@ export const Logo: FC = () => {
 	return (
 		<Link href="/">
 			<Image
-				src="/assets/img/logo.svg"
+				src="/assets/img/Logo.svg"
 				alt="logo"
 				width={32}
 				height={32}
