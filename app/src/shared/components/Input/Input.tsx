@@ -11,7 +11,7 @@ interface Props
 	error?: FieldError;
 }
 
-export const Input: FC = forwardRef<HTMLInputElement, Props>(
+const Input: FC = forwardRef<HTMLInputElement, Props>(
 	({ icon, error, ...props }, ref) => {
 		return (
 			<>
@@ -35,3 +35,7 @@ export const Input: FC = forwardRef<HTMLInputElement, Props>(
 		);
 	}
 );
+
+Input.displayName = "Input";
+
+export { Input };
