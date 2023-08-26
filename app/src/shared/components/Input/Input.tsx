@@ -11,13 +11,13 @@ interface Props
 	error?: FieldError;
 }
 
-const Input: FC = forwardRef<HTMLInputElement, Props>(
-	({ icon, error, ...props }: Props) => {
+const Input = forwardRef<HTMLInputElement, Props>(
+	({ icon, error, ...props }, ref) => {
 		return (
 			<>
 				<label className={`${styles.label} ${error && styles.error}`}>
 					{icon && icon}
-					<input {...props} />
+					<input {...props} ref={ref} />
 				</label>
 				{error?.type === "required" && (
 					<span className={styles.error}>Поле на заполнено</span>
