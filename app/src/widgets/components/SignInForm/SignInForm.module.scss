@@ -15,8 +15,23 @@
 		}
 	}
 
-	form {
+	.socials {
 		margin-top: 64px;
+		display: flex;
+		flex-direction: row;
+		gap: 12px;
+	}
+
+	.line {
+		margin-top: 40px;
+		position: relative;
+		text-align: center;
+		height: 1px;
+		background: var(--noble-black-500);
+	}
+
+	form {
+		margin-top: 40px;
 
 		display: flex;
 		flex-direction: column;

@@ -9,10 +9,10 @@ export const SignUpForm: FC = () => {
 	return (
 		<div className={styles.signup}>
 			<Text>
-				Привет, <span>Санта!</span>
+				Ждём тебя здесь,<span> брат!</span>
 			</Text>
 			<Text typeText="p" opacity={0.7} mt="24px">
-				Войдите в сайт, чтобы начать творить магию.
+				Зарегистрироваться на сайте, чтобы начать творить магию.
 			</Text>
 			<form>
 				<Input

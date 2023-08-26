@@ -5,7 +5,7 @@ export default function SignUp() {
 	return (
 		<main className={styles.main}>
 			<SignUpForm />
-			<Illustration />
+			<Illustration url="https://i.imgur.com/YPQc9ad.gif" />
 		</main>
 	);
 }

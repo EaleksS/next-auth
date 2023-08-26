@@ -1,4 +1,4 @@
-import { Button, Checkbox, Input, Text } from "@/shared";
+import { Button, Checkbox, Input, SocialBtn, Text } from "@/shared";
 import { FC } from "react";
 import styles from "./SignInForm.module.scss";
 import { HiOutlineMail } from "react-icons/hi";
@@ -9,11 +9,19 @@ export const SignInForm: FC = () => {
 	return (
 		<div className={styles.signin}>
 			<Text>
-				Привет, <span>Санта!</span>
+				Привет, <span>Творец!</span>
 			</Text>
 			<Text typeText="p" opacity={0.7} mt="24px">
 				Войдите в сайт, чтобы начать творить магию.
 			</Text>
+			<div className={styles.socials}>
+				<SocialBtn description="Sign In with Google" />
+				<SocialBtn
+					logo_url="/assets/img/apple.svg"
+					description="Sign In with Apple"
+				/>
+			</div>
+			<div className={styles.line}></div>
 			<form>
 				<Input
 					type="email"
