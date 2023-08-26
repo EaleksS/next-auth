@@ -1,0 +1,47 @@
+.text {
+	color: var(--noble-black-100);
+
+	/* Heading/XL/Regular */
+	font-size: 36px;
+	font-style: normal;
+	line-height: 44px; /* 122.222% */
+
+	span {
+		background: var(
+			--gradients-day-blue-blue-green-500,
+			linear-gradient(45deg, #4d62e5 0%, #87ddee 45.31%, #b6f09c 100%)
+		);
+		background-clip: text;
+		-webkit-background-clip: text;
+		-webkit-text-fill-color: transparent;
+
+		/* Heading/XL/Bold */
+		font-size: 36px;
+		font-weight: 700;
+		line-height: 44px;
+	}
+
+	&.h2 {
+		font-size: 32px;
+		line-height: 40px; /* 125% */
+	}
+	&.h3 {
+		font-size: 28px;
+		line-height: 36px; /* 128.571% */
+	}
+	&.h4 {
+		font-size: 24px;
+		line-height: 32px; /* 133.333% */
+	}
+	&.p {
+		font-size: 20px;
+		line-height: 32px; /* 160% */
+
+		span {
+			/* Heading/XL/Bold */
+			font-size: 20px;
+			line-height: 32px; /* 160% */
+			font-weight: 600;
+		}
+	}
+}
