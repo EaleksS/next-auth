@@ -10,14 +10,14 @@ interface Props
 	shade?: 400 | 300;
 }
 
-export const Button: FC<Props> = (props) => {
-	switch (props.typeBtn) {
+export const Button: FC<Props> = ({ typeBtn, shade, ...props }) => {
+	switch (typeBtn) {
 		case "small":
 			return (
 				<button
 					className={`${styles.btn} ${styles.small}  ${
-						props.shade === 400 && styles.c_400
-					} ${props.shade === 300 && styles.c_300}`}
+						shade === 400 && styles.c_400
+					} ${shade === 300 && styles.c_300}`}
 					{...props}
 				>
 					{props.children ? props.children : "button"}
@@ -28,8 +28,8 @@ export const Button: FC<Props> = (props) => {
 			return (
 				<button
 					className={`${styles.btn} ${styles.medium} ${
-						props.shade === 400 && styles.c_400
-					} ${props.shade === 300 && styles.c_300}`}
+						shade === 400 && styles.c_400
+					} ${shade === 300 && styles.c_300}`}
 					{...props}
 				>
 					{props.children ? props.children : "button"}
@@ -39,8 +39,8 @@ export const Button: FC<Props> = (props) => {
 		default:
 			return (
 				<button
-					className={`${styles.btn}  ${props.shade === 300 && styles.c_400} ${
-						props.shade === 300 && styles.c_300
+					className={`${styles.btn}  ${shade === 300 && styles.c_400} ${
+						shade === 300 && styles.c_300
 					}`}
 					{...props}
 				>

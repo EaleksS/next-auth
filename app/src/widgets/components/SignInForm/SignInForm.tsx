@@ -1,9 +1,8 @@
-import { Button, Checkbox, Input, SocialBtn, Text } from "@/shared";
+import { SocialBtn, Text } from "@/shared";
 import { FC } from "react";
 import styles from "./SignInForm.module.scss";
-import { HiOutlineMail } from "react-icons/hi";
-import { PiLockKeyBold } from "react-icons/pi";
 import Link from "next/link";
+import { Form } from "./Form";
 
 export const SignInForm: FC = () => {
 	return (
@@ -22,27 +21,7 @@ export const SignInForm: FC = () => {
 				/>
 			</div>
 			<div className={styles.line}></div>
-			<form>
-				<Input
-					type="email"
-					placeholder="Почта"
-					icon={<HiOutlineMail size={20} color="#686B6E" />}
-				/>
-				<Input
-					type="password"
-					placeholder="Пароль"
-					icon={<PiLockKeyBold size={20} color="#686B6E" />}
-				/>
-				<div className={styles.remember}>
-					<Checkbox>Не выходить</Checkbox>
-					<Link href="#">
-						<Text typeText="p">
-							<span>Забыли пароль?</span>
-						</Text>
-					</Link>
-				</div>
-				<Button>Войти</Button>
-			</form>
+			<Form />
 			<Text
 				typeText="p"
 				style={{ textAlign: "center", marginTop: "24px", color: "#686B6E" }}

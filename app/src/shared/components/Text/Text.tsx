@@ -13,15 +13,22 @@ interface Props
 	mt?: string;
 }
 
-export const Text: FC<Props> = (props) => {
+export const Text: FC<Props> = ({
+	fw,
+	color,
+	typeText,
+	opacity,
+	mt,
+	...props
+}) => {
 	const styleProps: CSSProperties = {
-		fontWeight: props.fw ? props.fw : "400",
-		color: props.color ? props.color : undefined,
-		opacity: props.opacity ? props.opacity : 1,
-		marginTop: props.mt ? props.mt : 0,
+		fontWeight: fw ? fw : "400",
+		color: color ? color : undefined,
+		opacity: opacity ? opacity : 1,
+		marginTop: mt ? mt : 0,
 	};
 
-	switch (props.typeText) {
+	switch (typeText) {
 		case "h2":
 			return (
 				<h2

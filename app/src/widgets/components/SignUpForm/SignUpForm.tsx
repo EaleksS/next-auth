@@ -4,6 +4,7 @@ import styles from "./SignUpForm.module.scss";
 import { HiOutlineMail } from "react-icons/hi";
 import { PiLockKeyBold } from "react-icons/pi";
 import Link from "next/link";
+import { Form } from "./Form";
 
 export const SignUpForm: FC = () => {
 	return (
@@ -14,32 +15,7 @@ export const SignUpForm: FC = () => {
 			<Text typeText="p" opacity={0.7} mt="24px">
 				Зарегистрироваться на сайте, чтобы начать творить магию.
 			</Text>
-			<form>
-				<Input
-					type="email"
-					placeholder="Почта"
-					icon={<HiOutlineMail size={20} color="#686B6E" />}
-				/>
-				<Input
-					type="password"
-					placeholder="Пароль"
-					icon={<PiLockKeyBold size={20} color="#686B6E" />}
-				/>
-				<Input
-					type="password"
-					placeholder="Повторите пароль"
-					icon={<PiLockKeyBold size={20} color="#686B6E" />}
-				/>
-				<div className={styles.rules}>
-					<Checkbox>
-						Я согласен с
-						<Link href="#">
-							<span> правилами и условиями</span>
-						</Link>
-					</Checkbox>
-				</div>
-				<Button>Зарегистрироваться</Button>
-			</form>
+			<Form />
 			<Text
 				typeText="p"
 				style={{ textAlign: "center", marginTop: "24px", color: "#686B6E" }}

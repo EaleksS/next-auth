@@ -1,17 +1,17 @@
 "use client";
 
-import { FC, ReactNode, useState } from "react";
+import { Dispatch, FC, ReactNode, SetStateAction, useState } from "react";
 import styles from "./Checkbox.module.scss";
 import { Text } from "../Text/Text";
 import { BsCheckLg } from "react-icons/bs";
 
 interface Props {
 	children?: ReactNode;
+	isChecked: boolean;
+	setIsChecked: Dispatch<SetStateAction<boolean>>;
 }
 
-export const Checkbox: FC<Props> = ({ children }) => {
-	const [isChecked, setIsChecked] = useState<boolean>(false);
-
+export const Checkbox: FC<Props> = ({ children, isChecked, setIsChecked }) => {
 	return (
 		<label
 			className={styles.label}

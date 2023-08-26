@@ -40,4 +40,12 @@
 			color: var(--noble-black-300);
 		}
 	}
+
+	&.error {
+		border-color: var(--red-power-600);
+	}
+}
+
+.error {
+	color: var(--red-power-600);
 }
