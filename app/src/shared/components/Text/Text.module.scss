@@ -6,6 +6,10 @@
 	font-style: normal;
 	line-height: 44px; /* 122.222% */
 
+	@media (max-width: 550px) {
+		font-size: 32px;
+	}
+
 	span {
 		background: var(
 			--gradients-day-blue-blue-green-500,
@@ -19,29 +23,53 @@
 		font-size: 36px;
 		font-weight: 700;
 		line-height: 44px;
+
+		@media (max-width: 550px) {
+			font-size: 32px;
+		}
 	}
 
 	&.h2 {
 		font-size: 32px;
 		line-height: 40px; /* 125% */
+
+		@media (max-width: 550px) {
+			font-size: 28px;
+		}
 	}
 	&.h3 {
 		font-size: 28px;
 		line-height: 36px; /* 128.571% */
+
+		@media (max-width: 550px) {
+			font-size: 24px;
+		}
 	}
 	&.h4 {
 		font-size: 24px;
 		line-height: 32px; /* 133.333% */
+
+		@media (max-width: 550px) {
+			font-size: 20px;
+		}
 	}
 	&.p {
 		font-size: 20px;
 		line-height: 32px; /* 160% */
+
+		@media (max-width: 550px) {
+			font-size: 16px;
+		}
 
 		span {
 			/* Heading/XL/Bold */
 			font-size: 20px;
 			line-height: 32px; /* 160% */
 			font-weight: 600;
+
+			@media (max-width: 550px) {
+				font-size: 16px;
+			}
 		}
 	}
 }
