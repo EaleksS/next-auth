@@ -9,6 +9,7 @@ import styles from "./SignInForm.module.scss";
 import { useForm, SubmitHandler } from "react-hook-form";
 import { signIn } from "next-auth/react";
 import { useRouter } from "next/navigation";
+import { toast } from "react-toastify";
 
 interface IFormInput {
 	email: string;
@@ -39,11 +40,11 @@ export const Form: FC = () => {
 		});
 
 		if (res?.error) {
-			console.log("Получена ошибка", res.error);
+			toast.error("Почта или пароль введены не правильно.");
 			reset();
 			setIsLoading(false);
 		} else {
-			console.log("Вы вошли");
+			toast.success("Вы успешно вошли.");
 
 			startTransition(() => router.push("/admin"));
 			if (!isPending) {

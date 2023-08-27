@@ -8,6 +8,7 @@ import { PiLockKeyBold, PiUserBold } from "react-icons/pi";
 import styles from "./SignUpForm.module.scss";
 import { useForm, SubmitHandler } from "react-hook-form";
 import { getAuth } from "@/services/auth.service";
+import { toast } from "react-toastify";
 
 interface IFormInput {
 	email: string;
@@ -40,11 +41,11 @@ export const Form: FC = () => {
 			})
 			.then((res) => {
 				setIsLoading(false);
-				console.log("Пользователь добавлен", res.status);
+				toast.success("Вы успешно зарегистри́ровались на сайте.");
 			})
 			.catch((err) => {
 				setIsLoading(false);
-				console.error(err);
+				toast.error(`Произошла ошибка: ${err.message}`);
 			});
 
 		setIsCheckedRules(!isChecked);
