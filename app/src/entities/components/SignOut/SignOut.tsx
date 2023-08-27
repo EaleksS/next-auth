@@ -11,7 +11,10 @@ export const SignOut: FC = () => {
 		<Button
 			onClick={() => {
 				setIsLoading(true);
-				signOut();
+				signOut({
+					redirect: true,
+					callbackUrl: `${window.location.origin}/auth/signin`,
+				});
 			}}
 			style={{ position: "absolute", right: 20, top: 20, zIndex: 2 }}
 		>
