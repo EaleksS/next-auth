@@ -1,17 +1,19 @@
 "use client";
 
-import { Button, Checkbox, Input, Text } from "@/shared";
+import { Button, Checkbox, Input, Loader, Text } from "@/shared";
 import Link from "next/link";
-import { FC, useEffect, useState } from "react";
+import { FC, useState } from "react";
 import { HiOutlineMail } from "react-icons/hi";
-import { PiLockKeyBold } from "react-icons/pi";
+import { PiLockKeyBold, PiUserBold } from "react-icons/pi";
 import styles from "./SignUpForm.module.scss";
 import { useForm, SubmitHandler } from "react-hook-form";
+import { getAuth } from "@/services/auth.service";
 
 interface IFormInput {
 	email: string;
-	password: string | number;
-	password_repeat: string | number;
+	username: string;
+	password: string;
+	password_repeat: string;
 }
 
 export const Form: FC = () => {
@@ -24,12 +26,28 @@ export const Form: FC = () => {
 	} = useForm<IFormInput>();
 	const [isChecked, setIsChecked] = useState<boolean>(false);
 	const [isCheckedRules, setIsCheckedRules] = useState<boolean>(false);
+	const [isLoading, setIsLoading] = useState<boolean>(false);
 
-	const onSubmit: SubmitHandler<IFormInput> = (data) => {
+	const onSubmit: SubmitHandler<IFormInput> = async (data) => {
 		if (!isChecked) return setIsCheckedRules(true);
+		setIsLoading(true);
+
+		await getAuth
+			.addUser({
+				email: data.email,
+				username: data.username,
+				password: data.password,
+			})
+			.then((res) => {
+				setIsLoading(false);
+				console.log("Пользователь добавлен", res.status);
+			})
+			.catch((err) => {
+				setIsLoading(false);
+				console.error(err);
+			});
 
 		setIsCheckedRules(!isChecked);
-		console.log(data);
 		reset();
 	};
 
@@ -40,17 +58,29 @@ export const Form: FC = () => {
 				placeholder="Почта"
 				icon={<HiOutlineMail size={20} color="#686B6E" />}
 				{...register("email", {
-					required: "Формат не правильный",
-					pattern: /^[^@ ]+@[^@ ]+\.[^@ .]{2,}$/,
+					required: "Почта не введена",
+					pattern: {
+						value: /^[^@ ]+@[^@ ]+\.[^@ .]{2,}$/,
+						message: "Почта введена не корректно",
+					},
 				})}
 				error={errors.email}
+			/>
+			<Input
+				type="text"
+				placeholder="Имя"
+				icon={<PiUserBold size={20} color="#686B6E" />}
+				{...register("username", {
+					required: "Имя не введен",
+				})}
+				error={errors.username}
 			/>
 			<Input
 				type="password"
 				placeholder="Пароль"
 				icon={<PiLockKeyBold size={20} color="#686B6E" />}
 				{...register("password", {
-					required: true,
+					required: "Пароль не введен",
 					minLength: {
 						value: 8,
 						message: "Слишком короткий пароль",
@@ -63,7 +93,7 @@ export const Form: FC = () => {
 				placeholder="Повторите пароль"
 				icon={<PiLockKeyBold size={20} color="#686B6E" />}
 				{...register("password_repeat", {
-					required: true,
+					required: "Пароль не введен",
 					validate: (value) =>
 						value === watch("password") || "Пароли не совпадают",
 					minLength: {
@@ -84,7 +114,9 @@ export const Form: FC = () => {
 			{isCheckedRules && (
 				<span style={{ color: "red" }}>Вы не поставили галочку</span>
 			)}
-			<Button type="submit">Зарегистрироваться</Button>
+			<Button type="submit" disabled={isLoading}>
+				{isLoading ? <Loader /> : "Зарегистрироваться"}
+			</Button>
 		</form>
 	);
 };

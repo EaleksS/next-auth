@@ -19,16 +19,16 @@ const Input = forwardRef<HTMLInputElement, Props>(
 					{icon && icon}
 					<input {...props} ref={ref} />
 				</label>
-				{error?.type === "required" && (
-					<span className={styles.error}>Поле на заполнено</span>
+				{/* {error?.type === "required" && (
+					<span className={styles.error}>{error.message}</span>
 				)}
 				{error?.type === "pattern" && (
-					<span className={styles.error}>Почта введена не корректно</span>
+					<span className={styles.error}>{error.message}</span>
 				)}
 				{error?.type === "minLength" && (
 					<span className={styles.error}>{error.message}</span>
-				)}
-				{error?.type === "validate" && (
+				)} */}
+				{error && (
 					<span className={styles.error}>{error.message}</span>
 				)}
 			</>

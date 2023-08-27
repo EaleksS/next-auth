@@ -15,9 +15,9 @@ export const Button: FC<Props> = ({ typeBtn, shade, ...props }) => {
 		case "small":
 			return (
 				<button
-					className={`${styles.btn} ${styles.small}  ${
+					className={` ${styles.btn} ${styles.small}  ${
 						shade === 400 && styles.c_400
-					} ${shade === 300 && styles.c_300}`}
+					} ${shade === 300 && styles.c_300} `}
 					{...props}
 				>
 					{props.children ? props.children : "button"}

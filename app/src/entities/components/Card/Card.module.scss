@@ -1,0 +1,19 @@
+.card {
+	display: flex;
+	align-items: center;
+	background: var(--purple-blue-500);
+	padding: 20px;
+	border-radius: 20px;
+	gap: 20px;
+
+	.title {
+		background: var(--purple-blue-900);
+		padding: 20px;
+		border-radius: 20px;
+	}
+}
+
+.user_img {
+	object-fit: cover;
+	border-radius: 50%;
+}
