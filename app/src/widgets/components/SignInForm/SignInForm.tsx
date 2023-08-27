@@ -1,8 +1,9 @@
-import { SocialBtn, Text } from "@/shared";
+import { Text } from "@/shared";
 import { FC } from "react";
 import styles from "./SignInForm.module.scss";
 import Link from "next/link";
 import { Form } from "./Form";
+import { SocialSignIn } from "./SocialSignIn";
 
 export const SignInForm: FC = () => {
 	return (
@@ -13,13 +14,7 @@ export const SignInForm: FC = () => {
 			<Text typeText="p" opacity={0.7} mt="24px">
 				Войдите в сайт, чтобы начать творить магию.
 			</Text>
-			<div className={styles.socials}>
-				<SocialBtn description="Sign In with Google" />
-				<SocialBtn
-					logo_url="/assets/img/apple.svg"
-					description="Sign In with Apple"
-				/>
-			</div>
+			<SocialSignIn />
 			<div className={styles.line}></div>
 			<Form />
 			<Text

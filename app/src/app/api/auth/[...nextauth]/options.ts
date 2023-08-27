@@ -1,16 +1,21 @@
 import type { NextAuthOptions } from "next-auth";
 import GitHubProvider from "next-auth/providers/github";
 import CredentialsProvider from "next-auth/providers/credentials";
-import { PrismaAdapter } from "@next-auth/prisma-adapter";
+import DiscordProvider from "next-auth/providers/discord";
+// import { PrismaAdapter } from "@next-auth/prisma-adapter";
 import { db } from "@/lib/db";
 
 export const options: NextAuthOptions = {
-	adapter: PrismaAdapter(db),
+	// adapter: PrismaAdapter(db),
 	session: {
 		strategy: "jwt",
 	},
 	secret: process.env.NEXTAUTH_SECRET,
 	providers: [
+		DiscordProvider({
+			clientId: process.env.DISCORD_ID as string,
+			clientSecret: process.env.DISCORD_SECRET as string,
+		}),
 		GitHubProvider({
 			clientId: process.env.GITHUB_ID as string,
 			clientSecret: process.env.GITHUB_SECRET as string,
