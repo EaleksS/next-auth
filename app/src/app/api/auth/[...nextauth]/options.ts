@@ -4,6 +4,7 @@ import CredentialsProvider from "next-auth/providers/credentials";
 import DiscordProvider from "next-auth/providers/discord";
 // import { PrismaAdapter } from "@next-auth/prisma-adapter";
 import { db } from "@/lib/db";
+import { compare } from "bcryptjs";
 
 export const options: NextAuthOptions = {
 	// adapter: PrismaAdapter(db),
@@ -48,7 +49,12 @@ export const options: NextAuthOptions = {
 					return null;
 				}
 
-				if (credentials.password !== existingUser.password) {
+				const passwordMatch = await compare(
+					credentials.password,
+					existingUser.password
+				);
+
+				if (!passwordMatch) {
 					return null;
 				}
 
