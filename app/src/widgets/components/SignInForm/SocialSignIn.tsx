@@ -24,14 +24,16 @@ export const SocialSignIn = () => {
 	return (
 		<div className={styles.socials}>
 			<SocialBtn
-				logo_url="/assets/img/apple.svg"
+				logo_url="/assets/img/discord.png"
 				description="Sign In with Discord"
 				onClick={() => onSubmit("discord")}
 			/>
 			<SocialBtn
-				logo_url="/assets/img/apple.svg"
+				logo_url="/assets/img/github.png"
 				description="Sign In with GitHub"
 				onClick={() => onSubmit("github")}
+				width={40}
+				height={40}
 			/>
 		</div>
 	);
