@@ -22,9 +22,15 @@ export default function RootLayout({
 	children: React.ReactNode;
 }) {
 	return (
-		<html lang="en">
+		<html lang="ru">
+			<head>
+				<link
+					id="theme-css"
+					href={`/themes/soho-dark/theme.css`}
+					rel="stylesheet"
+				></link>
+			</head>
 			<body className={plusJakartaSans.className}>
-				<Logo />
 				{children}
 				<ToastContainer
 					position="top-right"

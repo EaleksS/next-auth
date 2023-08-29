@@ -16,7 +16,7 @@ export const SignOut: FC = () => {
 					callbackUrl: `${window.location.origin}/auth/signin`,
 				});
 			}}
-			style={{ position: "absolute", right: 20, top: 20, zIndex: 2 }}
+			typeBtn="medium"
 		>
 			{isLoading ? <Loader /> : "Выйти"}
 		</Button>
